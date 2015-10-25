@@ -1,0 +1,9 @@
+E:\курсач долгов\filemanager-master\filemanager\FileManager\FMClasses\bin\Debug\FMClasses.dll
+E:\курсач долгов\filemanager-master\filemanager\FileManager\FMClasses\bin\Debug\FMClasses.pdb
+E:\курсач долгов\filemanager-master\filemanager\FileManager\FMClasses\obj\Debug\FMClasses.dll
+E:\курсач долгов\filemanager-master\filemanager\FileManager\FMClasses\obj\Debug\FMClasses.pdb
+G:\курсач долгов\filemanager-master\filemanager\FileManager\FMClasses\bin\Debug\FMClasses.dll
+G:\курсач долгов\filemanager-master\filemanager\FileManager\FMClasses\bin\Debug\FMClasses.pdb
+G:\курсач долгов\filemanager-master\filemanager\FileManager\FMClasses\obj\Debug\FMClasses.csprojResolveAssemblyReference.cache
+G:\курсач долгов\filemanager-master\filemanager\FileManager\FMClasses\obj\Debug\FMClasses.dll
+G:\курсач долгов\filemanager-master\filemanager\FileManager\FMClasses\obj\Debug\FMClasses.pdb
