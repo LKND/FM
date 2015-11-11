@@ -16,11 +16,6 @@ namespace FileManager
         public Form1()
         {
             InitializeComponent();
-            //создать пару экземпляров с месседжбоксами, и передать их в контрол, для отображения.
-            //dataGridView1.Columns.Add(Name, "Name");
-            //dataGridView1.Columns.Add(Name, "Size");
-            //dataGridView2.Columns.Add(Name, "Name");
-            //dataGridView2.Columns.Add(Name, "Size");
         }
 
         private void btnOpenFile_Click(object sender, EventArgs e)
@@ -33,6 +28,8 @@ namespace FileManager
             }
             MessageBox.Show("Файл Открыт");
             progressBar1.Value = 0;
+            Files files=new Files();
+            files.Open();
         }
         private void btnCreate_Click(object sender, EventArgs e)
         {

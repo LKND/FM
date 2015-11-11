@@ -1,0 +1,4 @@
+G:\FM\FileManager\Classes\bin\Debug\Classes.dll
+G:\FM\FileManager\Classes\bin\Debug\Classes.pdb
+G:\FM\FileManager\Classes\obj\Debug\Classes.dll
+G:\FM\FileManager\Classes\obj\Debug\Classes.pdb

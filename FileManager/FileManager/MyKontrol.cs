@@ -4,38 +4,75 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Data;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 using ConsoleApplication2;
+using UltimateFilesHurricaneManagerClassLibrary;
 
 namespace FileManager
 {
     public partial class MyKontrol : Panel
     {
+        public string[] Drives = Environment.GetLogicalDrives();
+        File fales;
+
+        public int datagridView_Left { get; set; }
+        public int datagridView_Right { get; set; }
         public MyKontrol()
         {
             InitializeComponent();
         }
-        
-        private void Button1Click(object sender, EventArgs e)
+        public void CreateDiskBut()
         {
-            string c = @"C:\";
-            var fales = new Files { Per = c };
-            dataGridView1.Rows.Clear();
-            foreach (var i in fales._information())
+            List<Button> listBTN = new List<Button>();
+            Button btn;
+            int k = 0;
+            for (int i = 0; i < Drives.Length; i++)
             {
-                dataGridView1.Rows.Add(fales.Name, fales.Size);
+                btn = new Button();
+                btn.Location = new Point(10 + k, 30);
+                btn.Size = new Size(50, 25);
+                btn.Name = "BTN"+Drives[i];
+                btn.Text = Drives[i];
+                btn.Dock = DockStyle.Top;
+                listBTN.Add(btn);
+                k = k + 50;
+                btn.Click += ButtonClickOD;
             }
-        }
-        private void Button2Click(object sender, EventArgs e)
-        {
-            string c = @"E:\";
-            var fales = new Files { Per = c };
-            dataGridView1.Rows.Clear();
-            foreach (var i in fales._information())
+            foreach (Button b in listBTN)
             {
-                dataGridView1.Rows.Add(fales.Name, fales.Size);
+                panel1.Controls.AddRange(new Button[] { b });
+            }
+
+        }
+        public void ButtonClickOD(object sender, EventArgs e)
+        {
+            string g = ((Button) sender).Text;
+            openDir(g);
+        }
+        public void openDir(string d)
+        {
+            string c = d;
+            //var fales = new Files { Per = c };
+            //fales = new Files {Per = c};
+            //dataGridView1.Rows.Clear();
+            //foreach (var l in fales._information())
+            //{
+            //    dataGridView1.Rows.Add(fales.Name, fales.Size);
+            //}
+            dataGridView1.Rows.Clear();
+            Folder flFile = new Folder(c);
+            flFile.Open();
+            foreach (var l in flFile.DirectoriesList)
+            {
+                dataGridView1.Rows.Add(l.Name, l.Path);
+            }
+            foreach (var l in flFile.FilesList)
+            {
+                dataGridView1.Rows.Add(l.Name, l.Size);
             }
         }
 
@@ -46,44 +83,46 @@ namespace FileManager
             dataGridView1.Columns.Add(Name, "Name");
             dataGridView1.Columns.Add(Name, "Size");
             dataGridView1.Dock=DockStyle.Bottom;
+            CreateDiskBut();
+            var flFile=new Folder(@"C:\");
+            flFile.Open();
+            foreach (var l in flFile.DirectoriesList)
+            {
+                dataGridView1.Rows.Add(l.Name, l.Path);
+            }
+            foreach (var l in flFile.FilesList)
+            {
+                dataGridView1.Rows.Add(l.Name,l.Size);
+            }
+        }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int y = dataGridView1.CurrentCell.RowIndex;
+            string c = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            var flFile = new Folder(c);
+          try
+            {
+                
+                flFile.Open();
+                dataGridView1.Rows.Clear();
+                foreach (var l in flFile.DirectoriesList)
+                {
+                    dataGridView1.Rows.Add(l.Name, l.Path);
+                }
+                foreach (var l in flFile.FilesList)
+                {
+                    dataGridView1.Rows.Add(l.Name, l.Size);
+                }
+                
+            }
+            catch (Exception)
+            {
+
+                var flfiles = new File(flFile.Path);
+                flfiles.Open();
+            }
+            
         }
     }
-
-    //public class MyKontrolGrid : DataGridView
-    //{
-    //    public MyKontrol kontrol;
-    //    private DataGridView dgv;
-    //    private Button btnC;
-    //    private Button btnD;
-    //    public delegate void ButtonClickedEventHandler(object sender, EventArgs e);
-    //    public event ButtonClickedEventHandler OnUserControlButtonClicked;
-
-    //    public MyKontrolGrid()
-    //    {
-    //        InitializeComponent();
-    //    }
-
-    //    private void InitializeComponent()
-    //    {
-    //        this.dgv=new DataGridView();
-    //        this.kontrol=new MyKontrol();
-    //        this.btnC=new Button();
-    //        this.btnD=new Button();
-    //        this.Controls.Add(this.kontrol);
-    //        this.Controls.Add(this.dgv);
-    //        this.Controls.Add(this.btnC);
-    //        this.Controls.Add(this.btnD);
-    //        this.Size=new Size(300, 350);
-    //        this.dgv.Columns.Add(Name, "Name");
-    //        this.dgv.Columns.Add(Name, "Size");
-    //        btnC.Click+=new EventHandler(OnButtonClicked);
-
-    //    }
-
-    //    private void OnButtonClicked(object sender, EventArgs e)
-    //    {
-    //        if (OnUserControlButtonClicked != null)
-    //            OnUserControlButtonClicked(this, e);
-    //    }
-    //}
 }

@@ -49,7 +49,7 @@
             // progressBar1
             // 
             this.progressBar1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.progressBar1.Location = new System.Drawing.Point(0, 664);
+            this.progressBar1.Location = new System.Drawing.Point(0, 658);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(705, 23);
             this.progressBar1.TabIndex = 0;
@@ -130,8 +130,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.myKontrol2);
-            this.splitContainer1.Size = new System.Drawing.Size(705, 603);
-            this.splitContainer1.SplitterDistance = 348;
+            this.splitContainer1.Size = new System.Drawing.Size(705, 597);
+            this.splitContainer1.SplitterDistance = 350;
             this.splitContainer1.TabIndex = 6;
             // 
             // myKontrol1
@@ -139,7 +139,7 @@
             this.myKontrol1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.myKontrol1.Location = new System.Drawing.Point(0, 0);
             this.myKontrol1.Name = "myKontrol1";
-            this.myKontrol1.Size = new System.Drawing.Size(348, 603);
+            this.myKontrol1.Size = new System.Drawing.Size(350, 597);
             this.myKontrol1.TabIndex = 7;
             // 
             // myKontrol2
@@ -147,14 +147,14 @@
             this.myKontrol2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.myKontrol2.Location = new System.Drawing.Point(0, 0);
             this.myKontrol2.Name = "myKontrol2";
-            this.myKontrol2.Size = new System.Drawing.Size(353, 603);
+            this.myKontrol2.Size = new System.Drawing.Size(351, 597);
             this.myKontrol2.TabIndex = 0;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(705, 687);
+            this.ClientSize = new System.Drawing.Size(705, 681);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.progressBar1);
